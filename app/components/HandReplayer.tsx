@@ -272,7 +272,7 @@ export function HandReplayer({ history, latestPatch }: HandReplayerProps) {
                       ${player.isActive ? 'bg-slate-800 border-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.5)]' : 'bg-slate-800/90 border-slate-600'}
                    `}>
                       <div className="text-[10px] uppercase text-slate-400 font-bold truncate max-w-[70px]">{player.name}</div>
-                      <div className="text-xs font-mono text-white">{player.currentStack}</div>
+                      <div className="text-xs font-mono text-white">{String(player.currentStack)}</div>
                       
                       {/* Hole Cards */}
                       <div className="flex -space-x-2 mt-1 h-8">
