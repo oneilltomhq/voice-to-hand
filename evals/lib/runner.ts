@@ -4,6 +4,7 @@
  */
 
 import { generateHandHistoryPatch } from "../../app/actions/generate-hand-history-patch";
+import { generateHandHistoryPatchDecomposed } from "../../app/actions/agents/orchestrator";
 import { OpenHandHistory } from "../../app/lib/OpenHandHistory";
 import { applyPatch, Operation } from "rfc6902";
 import { scoreEval, formatEvalResult, type EvalResult } from "./scoring";
@@ -25,6 +26,8 @@ export interface RunOptions {
   concurrency?: number;
   /** Print per-step patches for debugging */
   verbose?: boolean;
+  /** Use decomposed multi-agent pipeline instead of god prompt */
+  decomposed?: boolean;
 }
 
 export interface StepLog {
@@ -42,7 +45,7 @@ export interface CaseRun {
   durationMs: number;
 }
 
-async function runCase(evalCase: EvalCase, verbose: boolean): Promise<CaseRun> {
+async function runCase(evalCase: EvalCase, verbose: boolean, decomposed: boolean): Promise<CaseRun> {
   const start = Date.now();
   let state = new OpenHandHistory().toJSON().ohh;
   const transcriptHistory: string[] = [];
@@ -62,11 +65,9 @@ async function runCase(evalCase: EvalCase, verbose: boolean): Promise<CaseRun> {
         rounds: state.rounds,
       };
 
-      const result = await generateHandHistoryPatch(
-        segment,
-        transcriptHistory,
-        context
-      );
+      const result = decomposed
+        ? await generateHandHistoryPatchDecomposed(segment, transcriptHistory, context)
+        : await generateHandHistoryPatch(segment, transcriptHistory, context);
 
       if (result.success && result.patches && result.patches.length > 0) {
         stepLog.patches = result.patches;
@@ -105,7 +106,7 @@ export async function runEvals(
   cases: EvalCase[],
   opts: RunOptions = {}
 ): Promise<CaseRun[]> {
-  const { filter, verbose = false } = opts;
+  const { filter, verbose = false, decomposed = false } = opts;
 
   let filtered = cases;
   if (filter) {
@@ -121,7 +122,7 @@ export async function runEvals(
   // Sequential to respect rate limits
   for (const c of filtered) {
     console.log(`\u25CB ${c.id} (${c.label})`);
-    const run = await runCase(c, verbose);
+    const run = await runCase(c, verbose, decomposed);
     runs.push(run);
     console.log(formatEvalResult(run.result));
     console.log(`  ⏱ ${(run.durationMs / 1000).toFixed(1)}s\n`);
