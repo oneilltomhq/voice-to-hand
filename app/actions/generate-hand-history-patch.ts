@@ -2,12 +2,31 @@
 
 import { generateObject } from "ai";
 import { createGroq } from "@ai-sdk/groq";
+import { createOpenAI } from "@ai-sdk/openai";
 import { z } from "zod";
 
-// Initialize Groq provider
-const groq = createGroq({
-  apiKey: process.env.GROQ_API_KEY,
-});
+// Provider selection: EVAL_PROVIDER=fireworks|groq (default: groq)
+function getModel() {
+  const provider = process.env.EVAL_PROVIDER || "groq";
+  const modelId = process.env.EVAL_MODEL || "openai/gpt-oss-120b";
+
+  if (provider === "fireworks") {
+    // Use OpenAI-compatible endpoint (avoids @ai-sdk/fireworks version issues)
+    const fireworks = createOpenAI({
+      apiKey: process.env.FIREWORKS_API_KEY,
+      baseURL: "https://api.fireworks.ai/inference/v1",
+    });
+    const fwModelId = modelId.startsWith("accounts/")
+      ? modelId
+      : `accounts/fireworks/models/${modelId.replace("openai/", "")}`;
+    return fireworks.chat(fwModelId);
+  }
+
+  const groq = createGroq({
+    apiKey: process.env.GROQ_API_KEY,
+  });
+  return groq(modelId);
+}
 
 // Define the schema for RFC 6902 Patch operations
 // We need a loose schema because value can be anything
@@ -29,7 +48,7 @@ export async function generateHandHistoryPatch(
 ) {
   try {
     const { object } = await generateObject({
-      model: groq("openai/gpt-oss-120b"),
+      model: getModel(),
       schema: patchSchema,
       system: `
         You are a Poker Hand History Assistant.
