@@ -1,0 +1,2838 @@
+[
+  {
+    "id": "hu-preflop-fold",
+    "label": "Heads-up, button raises, BB folds immediately",
+    "tags": [
+      "heads-up",
+      "preflop-only",
+      "hu-position-logic"
+    ],
+    "table_size": 2,
+    "transcript": [
+      "Heads up, one two blinds. I'm on the button with ace king offsuit.",
+      "I post the small blind. He posts the big blind. I raise to six. He folds."
+    ],
+    "golden_ohh": {
+      "table_size": 2,
+      "dealer_seat": 1,
+      "hero_player_id": 1,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Hero",
+          "seat": 1,
+          "starting_stack": 200,
+          "cards": [
+            "Ah",
+            "Kd"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 200
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 1,
+              "action": "Raise",
+              "amount": 6
+            },
+            {
+              "action_number": 4,
+              "player_id": 2,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "limped-pot",
+    "label": "6-max limped pot with check-around on flop",
+    "tags": [
+      "limp",
+      "check-around",
+      "no-bet-street",
+      "6-max"
+    ],
+    "table_size": 6,
+    "transcript": [
+      "Six-handed, one two blinds. I'm in the cutoff with jack ten of spades.",
+      "UTG limps. MP folds. I limp. Button limps. Small blind completes. Big blind checks.",
+      "Flop is nine eight deuce, two spades. Everyone checks around."
+    ],
+    "golden_ohh": {
+      "table_size": 6,
+      "dealer_seat": 6,
+      "hero_player_id": 5,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 200
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 200
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 200
+        },
+        {
+          "id": 5,
+          "name": "Hero",
+          "seat": 5,
+          "starting_stack": 200,
+          "cards": [
+            "Js",
+            "Ts"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Player 6",
+          "seat": 6,
+          "starting_stack": 200
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Call",
+              "amount": 2
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Fold"
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Call",
+              "amount": 2
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Call",
+              "amount": 2
+            },
+            {
+              "action_number": 7,
+              "player_id": 1,
+              "action": "Call",
+              "amount": 2
+            },
+            {
+              "action_number": 8,
+              "player_id": 2,
+              "action": "Check"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "9s",
+            "8s",
+            "2d"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Check"
+            },
+            {
+              "action_number": 4,
+              "player_id": 5,
+              "action": "Check"
+            },
+            {
+              "action_number": 5,
+              "player_id": 6,
+              "action": "Check"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "straddle",
+    "label": "9-handed with UTG straddle, action starts UTG+1",
+    "tags": [
+      "straddle",
+      "extra-blind",
+      "9-handed"
+    ],
+    "table_size": 9,
+    "transcript": [
+      "Nine-handed, one two blinds. UTG straddles to four.",
+      "I'm UTG plus one with pocket tens.",
+      "I raise to twelve. Folds around to the straddle. He calls.",
+      "Flop is seven five deuce rainbow. He checks. I bet fifteen. He folds."
+    ],
+    "golden_ohh": {
+      "table_size": 9,
+      "dealer_seat": 9,
+      "hero_player_id": 4,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 200
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 200
+        },
+        {
+          "id": 4,
+          "name": "Hero",
+          "seat": 4,
+          "starting_stack": 200,
+          "cards": [
+            "Th",
+            "Td"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 200
+        },
+        {
+          "id": 6,
+          "name": "Player 6",
+          "seat": 6,
+          "starting_stack": 200
+        },
+        {
+          "id": 7,
+          "name": "Player 7",
+          "seat": 7,
+          "starting_stack": 200
+        },
+        {
+          "id": 8,
+          "name": "Player 8",
+          "seat": 8,
+          "starting_stack": 200
+        },
+        {
+          "id": 9,
+          "name": "Player 9",
+          "seat": 9,
+          "starting_stack": 200
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Post BB",
+              "amount": 4
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Raise",
+              "amount": 12
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Fold"
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Fold"
+            },
+            {
+              "action_number": 7,
+              "player_id": 7,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 8,
+              "action": "Fold"
+            },
+            {
+              "action_number": 9,
+              "player_id": 9,
+              "action": "Fold"
+            },
+            {
+              "action_number": 10,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 11,
+              "player_id": 2,
+              "action": "Fold"
+            },
+            {
+              "action_number": 12,
+              "player_id": 3,
+              "action": "Call",
+              "amount": 12
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "7s",
+            "5h",
+            "2d"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 3,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 4,
+              "action": "Bet",
+              "amount": 15
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "mid-hand-correction",
+    "label": "Narrator corrects earlier action mid-hand",
+    "tags": [
+      "correction",
+      "out-of-order",
+      "rewind",
+      "8-handed"
+    ],
+    "table_size": 8,
+    "transcript": [
+      "Eight-handed, two five blinds. I'm in the cutoff with ace queen suited, diamonds.",
+      "Hijack raises to fifteen.",
+      "Wait actually, UTG limped in before that. So UTG limps, then hijack raises to fifteen.",
+      "I call. Everyone else folds.",
+      "Flop is king ten four, two diamonds. UTG checks. Hijack bets twenty. I call. UTG folds."
+    ],
+    "golden_ohh": {
+      "table_size": 8,
+      "dealer_seat": 8,
+      "hero_player_id": 7,
+      "small_blind_amount": 2,
+      "big_blind_amount": 5,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 500
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 500
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 500
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 500
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 500
+        },
+        {
+          "id": 6,
+          "name": "Player 6",
+          "seat": 6,
+          "starting_stack": 500
+        },
+        {
+          "id": 7,
+          "name": "Hero",
+          "seat": 7,
+          "starting_stack": 500,
+          "cards": [
+            "Ad",
+            "Qd"
+          ]
+        },
+        {
+          "id": 8,
+          "name": "Player 8",
+          "seat": 8,
+          "starting_stack": 500
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 2
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 5
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Call",
+              "amount": 5
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Fold"
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Fold"
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Raise",
+              "amount": 15
+            },
+            {
+              "action_number": 7,
+              "player_id": 7,
+              "action": "Call",
+              "amount": 15
+            },
+            {
+              "action_number": 8,
+              "player_id": 8,
+              "action": "Fold"
+            },
+            {
+              "action_number": 9,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 10,
+              "player_id": 2,
+              "action": "Fold"
+            },
+            {
+              "action_number": 11,
+              "player_id": 3,
+              "action": "Call",
+              "amount": 15
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "Kd",
+            "Td",
+            "4s"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 3,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 6,
+              "action": "Bet",
+              "amount": 20
+            },
+            {
+              "action_number": 3,
+              "player_id": 7,
+              "action": "Call",
+              "amount": 20
+            },
+            {
+              "action_number": 4,
+              "player_id": 3,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "asr-misheard-action",
+    "label": "Transcript contains ASR errors that must be interpreted",
+    "tags": [
+      "asr-error",
+      "misheard",
+      "robustness",
+      "6-max"
+    ],
+    "table_size": 6,
+    "transcript": [
+      "Six-handed, one two blinds. I'm in the big blind with king jack off suit.",
+      "Folds to the bottom who raises to five. Small blind folds. I core.",
+      "Flop is queen nine three. An eye check. He bets eight. I core.",
+      "Turn is a six. An eye check. He checks back."
+    ],
+    "golden_ohh": {
+      "table_size": 6,
+      "dealer_seat": 6,
+      "hero_player_id": 2,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Hero",
+          "seat": 2,
+          "starting_stack": 200,
+          "cards": [
+            "Kh",
+            "Jd"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 200
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 200
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 200
+        },
+        {
+          "id": 6,
+          "name": "Player 6",
+          "seat": 6,
+          "starting_stack": 200
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Fold"
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Fold"
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Raise",
+              "amount": 5
+            },
+            {
+              "action_number": 7,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "Qs",
+            "9h",
+            "3c"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 6,
+              "action": "Bet",
+              "amount": 8
+            },
+            {
+              "action_number": 3,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 8
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "street": "Turn",
+          "cards": [
+            "Qs",
+            "9h",
+            "3c",
+            "6d"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 6,
+              "action": "Check"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "single-utterance-street-transition",
+    "label": "One transcript segment spans preflop action into flop",
+    "tags": [
+      "multi-street-segment",
+      "street-transition",
+      "6-max"
+    ],
+    "table_size": 6,
+    "transcript": [
+      "Six max, one two blinds. I'm on the button with ace ten of hearts.",
+      "Folds to me, I raise to five. Small blind folds. Big blind calls. Flop comes ace king deuce, one heart. He checks. I bet six. He calls.",
+      "Turn is the four of hearts. He checks. I bet eighteen. He folds."
+    ],
+    "golden_ohh": {
+      "table_size": 6,
+      "dealer_seat": 6,
+      "hero_player_id": 6,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 200
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 200
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 200
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 200
+        },
+        {
+          "id": 6,
+          "name": "Hero",
+          "seat": 6,
+          "starting_stack": 200,
+          "cards": [
+            "Ah",
+            "Th"
+          ]
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Fold"
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Fold"
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Raise",
+              "amount": 5
+            },
+            {
+              "action_number": 7,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "As",
+            "Kd",
+            "2h"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 6,
+              "action": "Bet",
+              "amount": 6
+            },
+            {
+              "action_number": 3,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 6
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "street": "Turn",
+          "cards": [
+            "As",
+            "Kd",
+            "2h",
+            "4h"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 6,
+              "action": "Bet",
+              "amount": 18
+            },
+            {
+              "action_number": 3,
+              "player_id": 2,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "check-raise",
+    "label": "Post-flop check-raise sequence",
+    "tags": [
+      "check-raise",
+      "post-flop",
+      "6-max"
+    ],
+    "table_size": 6,
+    "transcript": [
+      "Six max, one two blinds. I'm the big blind with nine eight of clubs.",
+      "Cutoff raises to five. Button calls. Small blind folds. I call.",
+      "Flop is ten seven six with two clubs. I check. Cutoff bets eight. Button folds. I raise to twenty-four. Cutoff calls.",
+      "Turn is the deuce of clubs. I bet thirty-five. He folds."
+    ],
+    "golden_ohh": {
+      "table_size": 6,
+      "dealer_seat": 6,
+      "hero_player_id": 2,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Hero",
+          "seat": 2,
+          "starting_stack": 200,
+          "cards": [
+            "9c",
+            "8c"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 200
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 200
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 200
+        },
+        {
+          "id": 6,
+          "name": "Player 6",
+          "seat": 6,
+          "starting_stack": 200
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Fold"
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Raise",
+              "amount": 5
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Call",
+              "amount": 5
+            },
+            {
+              "action_number": 7,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "Tc",
+            "7h",
+            "6c"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 5,
+              "action": "Bet",
+              "amount": 8
+            },
+            {
+              "action_number": 3,
+              "player_id": 6,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 2,
+              "action": "Raise",
+              "amount": 24
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Call",
+              "amount": 24
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "street": "Turn",
+          "cards": [
+            "Tc",
+            "7h",
+            "6c",
+            "2c"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Bet",
+              "amount": 35
+            },
+            {
+              "action_number": 2,
+              "player_id": 5,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "all-in-for-less",
+    "label": "Short stack goes all-in for less than the bet",
+    "tags": [
+      "all-in",
+      "short-stack",
+      "is-allin",
+      "6-max"
+    ],
+    "table_size": 6,
+    "transcript": [
+      "Six max, one two blinds. I'm on the button with ace jack offsuit. The big blind only has thirty chips behind.",
+      "Folds to me. I raise to five. Small blind folds. Big blind calls.",
+      "Flop is ace eight three. He checks. I bet twenty. He goes all in for twenty-five total. I call."
+    ],
+    "golden_ohh": {
+      "table_size": 6,
+      "dealer_seat": 6,
+      "hero_player_id": 6,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 30
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 200
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 200
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 200
+        },
+        {
+          "id": 6,
+          "name": "Hero",
+          "seat": 6,
+          "starting_stack": 200,
+          "cards": [
+            "As",
+            "Jd"
+          ]
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Fold"
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Fold"
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Raise",
+              "amount": 5
+            },
+            {
+              "action_number": 7,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "Ad",
+            "8h",
+            "3c"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 6,
+              "action": "Bet",
+              "amount": 20
+            },
+            {
+              "action_number": 3,
+              "player_id": 2,
+              "action": "Raise",
+              "amount": 25,
+              "is_allin": true
+            },
+            {
+              "action_number": 4,
+              "player_id": 6,
+              "action": "Call",
+              "amount": 25
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "commentary-noop",
+    "label": "Pure commentary segments with no game actions",
+    "tags": [
+      "commentary",
+      "noop",
+      "zero-patch",
+      "6-max"
+    ],
+    "table_size": 6,
+    "transcript": [
+      "Six-handed, one two blinds. I'm under the gun with ace king suited, spades.",
+      "I raise to six. Everyone folds.",
+      "That's a sick spot honestly.",
+      "I can't believe they all folded. Free money I guess.",
+      "Alright next hand."
+    ],
+    "golden_ohh": {
+      "table_size": 6,
+      "dealer_seat": 6,
+      "hero_player_id": 3,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 200
+        },
+        {
+          "id": 3,
+          "name": "Hero",
+          "seat": 3,
+          "starting_stack": 200,
+          "cards": [
+            "As",
+            "Ks"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 200
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 200
+        },
+        {
+          "id": 6,
+          "name": "Player 6",
+          "seat": 6,
+          "starting_stack": 200
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Raise",
+              "amount": 6
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Fold"
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Fold"
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Fold"
+            },
+            {
+              "action_number": 7,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 2,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "incomplete-sentence",
+    "label": "Dangling subject split across two transcript segments",
+    "tags": [
+      "incomplete-sentence",
+      "cross-segment",
+      "fragmented-input",
+      "6-max"
+    ],
+    "table_size": 6,
+    "transcript": [
+      "Six max, two five blinds. I'm on the button with king queen offsuit.",
+      "Folds to the cutoff who raises to twelve. I call. Blinds fold.",
+      "Flop is jack ten four rainbow.",
+      "He bets fifteen. I call.",
+      "Turn is a three. He bets",
+      "thirty-five. I fold."
+    ],
+    "golden_ohh": {
+      "table_size": 6,
+      "dealer_seat": 6,
+      "hero_player_id": 6,
+      "small_blind_amount": 2,
+      "big_blind_amount": 5,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 500
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 500
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 500
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 500
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 500
+        },
+        {
+          "id": 6,
+          "name": "Hero",
+          "seat": 6,
+          "starting_stack": 500,
+          "cards": [
+            "Kh",
+            "Qd"
+          ]
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 2
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 5
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Fold"
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Raise",
+              "amount": 12
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Call",
+              "amount": 12
+            },
+            {
+              "action_number": 7,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 2,
+              "action": "Fold"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "Js",
+            "Th",
+            "4d"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 5,
+              "action": "Bet",
+              "amount": 15
+            },
+            {
+              "action_number": 2,
+              "player_id": 6,
+              "action": "Call",
+              "amount": 15
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "street": "Turn",
+          "cards": [
+            "Js",
+            "Th",
+            "4d",
+            "3c"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 5,
+              "action": "Bet",
+              "amount": 35
+            },
+            {
+              "action_number": 2,
+              "player_id": 6,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "pocket-pairs",
+    "label": "Hero has pocket queens, tests pair card parsing",
+    "tags": [
+      "card-parsing",
+      "pocket-pair",
+      "6-max"
+    ],
+    "table_size": 6,
+    "transcript": [
+      "Six max, one two blinds. I'm under the gun with pocket queens.",
+      "I raise to six. Folds to the big blind who calls.",
+      "Flop is jack eight three, all spades. He checks. I bet eight. He folds."
+    ],
+    "golden_ohh": {
+      "table_size": 6,
+      "dealer_seat": 6,
+      "hero_player_id": 3,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 200
+        },
+        {
+          "id": 3,
+          "name": "Hero",
+          "seat": 3,
+          "starting_stack": 200,
+          "cards": [
+            "Qc",
+            "Qd"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 200
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 200
+        },
+        {
+          "id": 6,
+          "name": "Player 6",
+          "seat": 6,
+          "starting_stack": 200
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Raise",
+              "amount": 6
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Fold"
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Fold"
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Fold"
+            },
+            {
+              "action_number": 7,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 6
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "Js",
+            "8s",
+            "3s"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 3,
+              "action": "Bet",
+              "amount": 8
+            },
+            {
+              "action_number": 3,
+              "player_id": 2,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "suited-connectors",
+    "label": "Hero has seven-eight of diamonds, tests suited card parsing",
+    "tags": [
+      "card-parsing",
+      "suited-connectors",
+      "6-max"
+    ],
+    "table_size": 6,
+    "transcript": [
+      "Six max, one two blinds. I'm in the hijack. I look down at seven eight of diamonds.",
+      "I raise to five. Everyone folds except the big blind who calls.",
+      "Flop is nine six two with one diamond. He checks. I bet six. He calls.",
+      "Turn is the five of diamonds. He checks. I bet eighteen. He folds."
+    ],
+    "golden_ohh": {
+      "table_size": 6,
+      "dealer_seat": 6,
+      "hero_player_id": 4,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 200
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 200
+        },
+        {
+          "id": 4,
+          "name": "Hero",
+          "seat": 4,
+          "starting_stack": 200,
+          "cards": [
+            "7d",
+            "8d"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 200
+        },
+        {
+          "id": 6,
+          "name": "Player 6",
+          "seat": 6,
+          "starting_stack": 200
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Raise",
+              "amount": 5
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Fold"
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Fold"
+            },
+            {
+              "action_number": 7,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "9h",
+            "6d",
+            "2c"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 4,
+              "action": "Bet",
+              "amount": 6
+            },
+            {
+              "action_number": 3,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 6
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "street": "Turn",
+          "cards": [
+            "9h",
+            "6d",
+            "2c",
+            "5d"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 4,
+              "action": "Bet",
+              "amount": 18
+            },
+            {
+              "action_number": 3,
+              "player_id": 2,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "rainbow-flop",
+    "label": "Flop described as rainbow, suits must be inferred as all different",
+    "tags": [
+      "card-parsing",
+      "rainbow",
+      "suit-inference",
+      "6-max"
+    ],
+    "table_size": 6,
+    "transcript": [
+      "Six max, one two blinds. I'm MP with ace king offsuit.",
+      "UTG folds. I raise to five. Folds to big blind who calls.",
+      "Flop comes ace seven deuce rainbow. He checks. I bet four. He calls.",
+      "Turn is a king. He checks. I bet twelve. He folds."
+    ],
+    "golden_ohh": {
+      "table_size": 6,
+      "dealer_seat": 6,
+      "hero_player_id": 4,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 200
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 200
+        },
+        {
+          "id": 4,
+          "name": "Hero",
+          "seat": 4,
+          "starting_stack": 200,
+          "cards": [
+            "Ah",
+            "Kd"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 200
+        },
+        {
+          "id": 6,
+          "name": "Player 6",
+          "seat": 6,
+          "starting_stack": 200
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Raise",
+              "amount": 5
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Fold"
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Fold"
+            },
+            {
+              "action_number": 7,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "As",
+            "7h",
+            "2c"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 4,
+              "action": "Bet",
+              "amount": 4
+            },
+            {
+              "action_number": 3,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 4
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "street": "Turn",
+          "cards": [
+            "As",
+            "7h",
+            "2c",
+            "Kc"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 4,
+              "action": "Bet",
+              "amount": 12
+            },
+            {
+              "action_number": 3,
+              "player_id": 2,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "four-bet-pot",
+    "label": "Open raise, 3-bet, 4-bet, call preflop",
+    "tags": [
+      "4-bet",
+      "deep-raise-sequence",
+      "6-max"
+    ],
+    "table_size": 6,
+    "transcript": [
+      "Six max, one two blinds. I'm on the button with pocket aces, ace of spades ace of hearts.",
+      "Cutoff raises to five. I three-bet to fifteen. Small blind folds. Big blind folds. Cutoff four-bets to forty. I call.",
+      "Flop is jack nine three, two hearts. He bets forty-five. I call.",
+      "Turn is the deuce of spades. He checks. I go all in for one hundred fifteen. He folds."
+    ],
+    "golden_ohh": {
+      "table_size": 6,
+      "dealer_seat": 6,
+      "hero_player_id": 6,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 200
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 200
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 200
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 200
+        },
+        {
+          "id": 6,
+          "name": "Hero",
+          "seat": 6,
+          "starting_stack": 200,
+          "cards": [
+            "As",
+            "Ah"
+          ]
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Fold"
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Raise",
+              "amount": 5
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Raise",
+              "amount": 15
+            },
+            {
+              "action_number": 7,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 2,
+              "action": "Fold"
+            },
+            {
+              "action_number": 9,
+              "player_id": 5,
+              "action": "Raise",
+              "amount": 40
+            },
+            {
+              "action_number": 10,
+              "player_id": 6,
+              "action": "Call",
+              "amount": 40
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "Jh",
+            "9h",
+            "3d"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 5,
+              "action": "Bet",
+              "amount": 45
+            },
+            {
+              "action_number": 2,
+              "player_id": 6,
+              "action": "Call",
+              "amount": 45
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "street": "Turn",
+          "cards": [
+            "Jh",
+            "9h",
+            "3d",
+            "2s"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 5,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 6,
+              "action": "Bet",
+              "amount": 115,
+              "is_allin": true
+            },
+            {
+              "action_number": 3,
+              "player_id": 5,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "river-showdown",
+    "label": "Hand goes to showdown, villain shows cards",
+    "tags": [
+      "showdown",
+      "villain-cards",
+      "river",
+      "6-max"
+    ],
+    "table_size": 6,
+    "transcript": [
+      "Six max, one two blinds. I'm in the cutoff with king queen of hearts.",
+      "Folds to me. I raise to five. Button folds. Small blind folds. Big blind calls.",
+      "Flop is queen jack four, one heart. He checks. I bet six. He calls.",
+      "Turn is the ten of hearts. He checks. I bet fifteen. He calls.",
+      "River is the two of clubs. He checks. I bet thirty. He calls.",
+      "He shows ace queen offsuit and I win with two pair. Wait no, he just has top pair. I win."
+    ],
+    "golden_ohh": {
+      "table_size": 6,
+      "dealer_seat": 6,
+      "hero_player_id": 5,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 200,
+          "cards": [
+            "Ac",
+            "Qd"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 200
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 200
+        },
+        {
+          "id": 5,
+          "name": "Hero",
+          "seat": 5,
+          "starting_stack": 200,
+          "cards": [
+            "Kh",
+            "Qh"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Player 6",
+          "seat": 6,
+          "starting_stack": 200
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Fold"
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Raise",
+              "amount": 5
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Fold"
+            },
+            {
+              "action_number": 7,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "Qs",
+            "Jd",
+            "4h"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 5,
+              "action": "Bet",
+              "amount": 6
+            },
+            {
+              "action_number": 3,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 6
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "street": "Turn",
+          "cards": [
+            "Qs",
+            "Jd",
+            "4h",
+            "Th"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 5,
+              "action": "Bet",
+              "amount": 15
+            },
+            {
+              "action_number": 3,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 15
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "street": "River",
+          "cards": [
+            "Qs",
+            "Jd",
+            "4h",
+            "Th",
+            "2c"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 2,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 5,
+              "action": "Bet",
+              "amount": 30
+            },
+            {
+              "action_number": 3,
+              "player_id": 2,
+              "action": "Call",
+              "amount": 30
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "street": "Showdown",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 5,
+              "action": "Dealt Card"
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Dealt Card"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "walk-for-bb",
+    "label": "Everyone folds to BB, BB wins uncontested (walk)",
+    "tags": [
+      "walk",
+      "preflop-only",
+      "no-flop",
+      "9-handed"
+    ],
+    "table_size": 9,
+    "transcript": [
+      "Nine-handed, one two blinds. I'm in the big blind with seven deuce offsuit.",
+      "Everyone folds to me. I win the pot."
+    ],
+    "golden_ohh": {
+      "table_size": 9,
+      "dealer_seat": 9,
+      "hero_player_id": 2,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Hero",
+          "seat": 2,
+          "starting_stack": 200,
+          "cards": [
+            "7s",
+            "2d"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 200
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 200
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 200
+        },
+        {
+          "id": 6,
+          "name": "Player 6",
+          "seat": 6,
+          "starting_stack": 200
+        },
+        {
+          "id": 7,
+          "name": "Player 7",
+          "seat": 7,
+          "starting_stack": 200
+        },
+        {
+          "id": 8,
+          "name": "Player 8",
+          "seat": 8,
+          "starting_stack": 200
+        },
+        {
+          "id": 9,
+          "name": "Player 9",
+          "seat": 9,
+          "starting_stack": 200
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Fold"
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Fold"
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Fold"
+            },
+            {
+              "action_number": 7,
+              "player_id": 7,
+              "action": "Fold"
+            },
+            {
+              "action_number": 8,
+              "player_id": 8,
+              "action": "Fold"
+            },
+            {
+              "action_number": 9,
+              "player_id": 9,
+              "action": "Fold"
+            },
+            {
+              "action_number": 10,
+              "player_id": 1,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "nine-handed-full-action",
+    "label": "9-handed with action from multiple positions across streets and implicit folds",
+    "tags": [
+      "9-handed",
+      "implicit-folds",
+      "multi-street",
+      "multi-player"
+    ],
+    "table_size": 9,
+    "transcript": [
+      "Nine-handed, one two blinds. I'm in the hijack with ace jack of spades.",
+      "UTG folds. UTG plus one calls. UTG plus two folds. Lojack folds. I raise to ten.",
+      "Cutoff folds. Button calls. Blinds fold. UTG plus one calls.",
+      "Flop is king ten four with two spades. UTG plus one checks. I bet fifteen. Button folds. UTG plus one calls.",
+      "Turn is the queen of spades. He checks. I bet thirty. He calls.",
+      "River is the eight of clubs. He checks. I bet fifty. He folds."
+    ],
+    "golden_ohh": {
+      "table_size": 9,
+      "dealer_seat": 9,
+      "hero_player_id": 7,
+      "small_blind_amount": 1,
+      "big_blind_amount": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player 1",
+          "seat": 1,
+          "starting_stack": 200
+        },
+        {
+          "id": 2,
+          "name": "Player 2",
+          "seat": 2,
+          "starting_stack": 200
+        },
+        {
+          "id": 3,
+          "name": "Player 3",
+          "seat": 3,
+          "starting_stack": 200
+        },
+        {
+          "id": 4,
+          "name": "Player 4",
+          "seat": 4,
+          "starting_stack": 200
+        },
+        {
+          "id": 5,
+          "name": "Player 5",
+          "seat": 5,
+          "starting_stack": 200
+        },
+        {
+          "id": 6,
+          "name": "Player 6",
+          "seat": 6,
+          "starting_stack": 200
+        },
+        {
+          "id": 7,
+          "name": "Hero",
+          "seat": 7,
+          "starting_stack": 200,
+          "cards": [
+            "As",
+            "Js"
+          ]
+        },
+        {
+          "id": 8,
+          "name": "Player 8",
+          "seat": 8,
+          "starting_stack": 200
+        },
+        {
+          "id": 9,
+          "name": "Player 9",
+          "seat": 9,
+          "starting_stack": 200
+        }
+      ],
+      "rounds": [
+        {
+          "id": 0,
+          "street": "Preflop",
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 1,
+              "action": "Post SB",
+              "amount": 1
+            },
+            {
+              "action_number": 2,
+              "player_id": 2,
+              "action": "Post BB",
+              "amount": 2
+            },
+            {
+              "action_number": 3,
+              "player_id": 3,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Call",
+              "amount": 2
+            },
+            {
+              "action_number": 5,
+              "player_id": 5,
+              "action": "Fold"
+            },
+            {
+              "action_number": 6,
+              "player_id": 6,
+              "action": "Fold"
+            },
+            {
+              "action_number": 7,
+              "player_id": 7,
+              "action": "Raise",
+              "amount": 10
+            },
+            {
+              "action_number": 8,
+              "player_id": 8,
+              "action": "Fold"
+            },
+            {
+              "action_number": 9,
+              "player_id": 9,
+              "action": "Call",
+              "amount": 10
+            },
+            {
+              "action_number": 10,
+              "player_id": 1,
+              "action": "Fold"
+            },
+            {
+              "action_number": 11,
+              "player_id": 2,
+              "action": "Fold"
+            },
+            {
+              "action_number": 12,
+              "player_id": 4,
+              "action": "Call",
+              "amount": 10
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "street": "Flop",
+          "cards": [
+            "Ks",
+            "Ts",
+            "4d"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 4,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 7,
+              "action": "Bet",
+              "amount": 15
+            },
+            {
+              "action_number": 3,
+              "player_id": 9,
+              "action": "Fold"
+            },
+            {
+              "action_number": 4,
+              "player_id": 4,
+              "action": "Call",
+              "amount": 15
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "street": "Turn",
+          "cards": [
+            "Ks",
+            "Ts",
+            "4d",
+            "Qs"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 4,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 7,
+              "action": "Bet",
+              "amount": 30
+            },
+            {
+              "action_number": 3,
+              "player_id": 4,
+              "action": "Call",
+              "amount": 30
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "street": "River",
+          "cards": [
+            "Ks",
+            "Ts",
+            "4d",
+            "Qs",
+            "8c"
+          ],
+          "actions": [
+            {
+              "action_number": 1,
+              "player_id": 4,
+              "action": "Check"
+            },
+            {
+              "action_number": 2,
+              "player_id": 7,
+              "action": "Bet",
+              "amount": 50
+            },
+            {
+              "action_number": 3,
+              "player_id": 4,
+              "action": "Fold"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

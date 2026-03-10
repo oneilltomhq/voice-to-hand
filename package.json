@@ -8,6 +8,8 @@
     "start": "next start",
     "test": "vitest run",
     "test:watch": "vitest",
+    "eval": "npx tsx evals/run.ts",
+    "eval:verbose": "npx tsx evals/run.ts --verbose",
     "lint": "eslint"
   },
   "dependencies": {
