@@ -77,7 +77,28 @@ export async function generateHandHistoryPatchDecomposed(
       const agentFn = AGENT_MAP[agentType];
       if (!agentFn) continue;
 
-      const result = await agentFn(userInput, previousTranscript, workingState);
+      let result: { patches: any[] };
+      try {
+        result = await agentFn(userInput, previousTranscript, workingState);
+      } catch (agentErr: any) {
+        // gpt-oss-120b sometimes emits <|channel|> reasoning tokens instead of JSON.
+        // Retry once on parse failures.
+        if (agentErr?.name === 'NoObjectGeneratedError' || agentErr?.message?.includes('JSON parsing failed')) {
+          if (process.env.EVAL_VERBOSE === "1") {
+            console.warn(`    [${agentType}] JSON parse error, retrying...`);
+          }
+          try {
+            result = await agentFn(userInput, previousTranscript, workingState);
+          } catch (retryErr) {
+            if (process.env.EVAL_VERBOSE === "1") {
+              console.warn(`    [${agentType}] retry also failed, skipping`);
+            }
+            continue;
+          }
+        } else {
+          throw agentErr;
+        }
+      }
 
       if (process.env.EVAL_VERBOSE === "1") {
         console.log(`    [${agentType}] ${result.patches?.length || 0} patches`);
