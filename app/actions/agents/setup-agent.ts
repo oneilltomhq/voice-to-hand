@@ -3,7 +3,7 @@
  */
 
 import { generateObject } from "ai";
-import { getModel, patchSchema, OHH_STATE_SCHEMA, POSITION_MAP, TRANSCRIPTION_FIXES } from "./model";
+import { getModel, MODEL_TEMPERATURE, patchSchema, OHH_STATE_SCHEMA, POSITION_MAP, TRANSCRIPTION_FIXES } from "./model";
 
 export async function runSetupAgent(
   segment: string,
@@ -13,6 +13,7 @@ export async function runSetupAgent(
   const { object } = await generateObject({
     model: getModel(),
     mode: "json",
+    temperature: MODEL_TEMPERATURE,
     schema: patchSchema,
     system: `You are a Poker Setup Specialist. You handle ONLY table configuration.
 

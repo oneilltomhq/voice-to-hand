@@ -3,7 +3,7 @@
  */
 
 import { generateObject } from "ai";
-import { getModel, patchSchema, OHH_STATE_SCHEMA } from "./model";
+import { getModel, MODEL_TEMPERATURE, patchSchema, OHH_STATE_SCHEMA } from "./model";
 
 export async function runStreetManager(
   segment: string,
@@ -13,6 +13,7 @@ export async function runStreetManager(
   const { object } = await generateObject({
     model: getModel(),
     mode: "json",
+    temperature: MODEL_TEMPERATURE,
     schema: patchSchema,
     system: `You are a Poker Street Manager. You handle ONLY round/street structure.
 

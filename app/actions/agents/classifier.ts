@@ -4,7 +4,7 @@
 
 import { generateObject } from "ai";
 import { z } from "zod";
-import { getModel, OHH_STATE_SCHEMA } from "./model";
+import { getModel, MODEL_TEMPERATURE, OHH_STATE_SCHEMA } from "./model";
 
 const classificationSchema = z.object({
   types: z.array(
@@ -28,6 +28,7 @@ export async function classifySegment(
   const { object } = await generateObject({
     model: getModel(),
     mode: "json",
+    temperature: MODEL_TEMPERATURE,
     schema: classificationSchema,
     system: `You are a poker transcript classifier. Given a transcript segment and the current game state, determine what type(s) of update are needed.
 

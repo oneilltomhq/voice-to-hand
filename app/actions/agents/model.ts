@@ -6,6 +6,9 @@ import { createGroq } from "@ai-sdk/groq";
 import { createOpenAI } from "@ai-sdk/openai";
 import { z } from "zod";
 
+/** Temperature for all eval/pipeline calls. 0 = deterministic. */
+export const MODEL_TEMPERATURE = 0;
+
 export function getModel() {
   const provider = process.env.EVAL_PROVIDER || "groq";
   const modelId = process.env.EVAL_MODEL || "openai/gpt-oss-120b";
@@ -19,6 +22,14 @@ export function getModel() {
       ? modelId
       : `accounts/fireworks/models/${modelId.replace("openai/", "")}`;
     return fireworks.chat(fwModelId);
+  }
+
+  if (provider === "openrouter") {
+    const openrouter = createOpenAI({
+      apiKey: process.env.OPENROUTER_API_KEY,
+      baseURL: "https://openrouter.ai/api/v1",
+    });
+    return openrouter.chat(modelId);
   }
 
   const groq = createGroq({

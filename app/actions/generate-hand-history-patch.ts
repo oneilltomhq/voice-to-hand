@@ -22,6 +22,14 @@ function getModel() {
     return fireworks.chat(fwModelId);
   }
 
+  if (provider === "openrouter") {
+    const openrouter = createOpenAI({
+      apiKey: process.env.OPENROUTER_API_KEY,
+      baseURL: "https://openrouter.ai/api/v1",
+    });
+    return openrouter.chat(modelId);
+  }
+
   const groq = createGroq({
     apiKey: process.env.GROQ_API_KEY,
   });
@@ -49,6 +57,7 @@ export async function generateHandHistoryPatch(
   try {
     const { object } = await generateObject({
       model: getModel(),
+      temperature: 0,
       schema: patchSchema,
       system: `
         You are a Poker Hand History Assistant.
