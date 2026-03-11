@@ -38,12 +38,56 @@ export function getModel() {
   return groq(modelId);
 }
 
+/**
+ * JSON Patch value — must be a concrete union rather than z.any() because
+ * many providers (DeepSeek, Mixtral on Fireworks) reject the empty `{}`
+ * JSON Schema that z.any() produces.
+ *
+ * For our OHH patches, values are primitives, card arrays, or action/player/round objects.
+ */
+const ohhAction = z.object({
+  action_number: z.number(),
+  player_id: z.number(),
+  action: z.string(),
+  amount: z.number().optional(),
+  is_allin: z.boolean().optional(),
+});
+
+const ohhPlayer = z.object({
+  id: z.number(),
+  name: z.string(),
+  seat: z.number(),
+  starting_stack: z.number().optional(),
+  cards: z.array(z.string()).optional(),
+});
+
+const ohhRound = z.object({
+  id: z.number(),
+  street: z.string(),
+  cards: z.array(z.string()).optional(),
+  actions: z.array(ohhAction).optional(),
+});
+
+const jsonPatchValue = z.union([
+  z.string(),
+  z.number(),
+  z.boolean(),
+  z.null(),
+  z.array(z.string()),        // card arrays, etc.
+  z.array(ohhAction),          // actions array
+  z.array(ohhPlayer),          // players array
+  z.array(ohhRound),           // rounds array
+  ohhAction,                   // single action object
+  ohhPlayer,                   // single player object
+  ohhRound,                    // single round object
+]).optional();
+
 export const patchSchema = z.object({
   patches: z.array(
     z.object({
       op: z.enum(["add", "remove", "replace", "move", "copy", "test"]),
       path: z.string(),
-      value: z.any().optional(),
+      value: jsonPatchValue,
       from: z.string().optional(),
     })
   ),
