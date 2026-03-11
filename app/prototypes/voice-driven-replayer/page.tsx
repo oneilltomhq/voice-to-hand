@@ -1,5 +1,6 @@
 "use client";
 
+import { getDeepgramOptions } from "../../lib/deepgram-config";
 import {
   LiveConnectionState,
   LiveTranscriptionEvents,
@@ -67,13 +68,9 @@ export default function VoiceDrivenReplayerPage() {
     await setupMicrophone();
 
     setStatus("connecting to Deepgram...");
-    await connectToDeepgram({
-      model: "nova-3",
-      interim_results: true,
-      smart_format: true,
+    await connectToDeepgram(getDeepgramOptions({
       endpointing: ENDPOINTING_MS,
-      vad_events: true,
-    });
+    }));
   };
 
   // Event Listeners
