@@ -117,16 +117,25 @@ export async function runEvals(
 
   console.log(`\nRunning ${filtered.length} eval cases...\n`);
 
-  const runs: CaseRun[] = [];
+  const concurrency = opts.concurrency ?? filtered.length; // default: all parallel
 
-  // Sequential to respect rate limits
-  for (const c of filtered) {
-    console.log(`\u25CB ${c.id} (${c.label})`);
-    const run = await runCase(c, verbose, decomposed);
-    runs.push(run);
-    console.log(formatEvalResult(run.result));
-    console.log(`  ⏱ ${(run.durationMs / 1000).toFixed(1)}s\n`);
+  const runs: CaseRun[] = new Array(filtered.length);
+  let nextIdx = 0;
+
+  async function worker() {
+    while (nextIdx < filtered.length) {
+      const idx = nextIdx++;
+      const c = filtered[idx];
+      console.log(`○ ${c.id} (${c.label})`);
+      const run = await runCase(c, verbose, decomposed);
+      runs[idx] = run;
+      console.log(formatEvalResult(run.result));
+      console.log(`  ⏱ ${(run.durationMs / 1000).toFixed(1)}s\n`);
+    }
   }
+
+  const workers = Array.from({ length: Math.min(concurrency, filtered.length) }, () => worker());
+  await Promise.all(workers);
 
   // Summary
   const avg = runs.reduce((s, r) => s + r.result.overall, 0) / runs.length;

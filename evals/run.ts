@@ -7,6 +7,7 @@
  *   npx tsx evals/run.ts --filter hu        # run cases matching 'hu'
  *   npx tsx evals/run.ts --verbose           # print per-step patches
  *   npx tsx evals/run.ts --samples 3        # run each case N times, report mean ± stddev
+ *   npx tsx evals/run.ts --concurrency 5    # run up to 5 cases in parallel (default: all)
  *   npx tsx evals/run.ts --decomposed -v    # combine flags
  */
 
@@ -24,6 +25,8 @@ const samplesIdx = args.indexOf("--samples");
 const samples = samplesIdx !== -1 ? parseInt(args[samplesIdx + 1], 10) : 1;
 const verbose = args.includes("--verbose") || args.includes("-v");
 const decomposed = args.includes("--decomposed") || args.includes("-d");
+const concurrencyIdx = args.indexOf("--concurrency");
+const concurrency = concurrencyIdx !== -1 ? parseInt(args[concurrencyIdx + 1], 10) : undefined;
 
 function stddev(values: number[]): number {
   const mean = values.reduce((a, b) => a + b, 0) / values.length;
@@ -37,7 +40,7 @@ async function main() {
   console.log(`Mode: ${mode}`);
   console.log(`Model: ${process.env.EVAL_MODEL || "openai/gpt-oss-120b (default)"}`);
   console.log(`Samples: ${samples}`);
-  console.log(`Cases: ${cases.length} loaded, filter: ${filter || "none"}`);
+  console.log(`Cases: ${cases.length} loaded, filter: ${filter || "none"}, concurrency: ${concurrency || "all"}`);
 
   if (samples > 1) {
     // Multi-sample mode: run N times, aggregate
@@ -48,7 +51,7 @@ async function main() {
       console.log(`SAMPLE ${s + 1}/${samples}`);
       console.log('━'.repeat(60));
 
-      const runs = await runEvals(cases as EvalCase[], { filter, verbose, decomposed });
+      const runs = await runEvals(cases as EvalCase[], { filter, verbose, decomposed, concurrency });
       allRuns.push(runs.map(r => ({
         caseId: r.caseId,
         overall: r.result.overall,
@@ -100,7 +103,7 @@ async function main() {
     process.exit(overallMean < 0.7 ? 1 : 0);
   } else {
     // Single-sample mode (original behavior)
-    const runs = await runEvals(cases as EvalCase[], { filter, verbose, decomposed });
+    const runs = await runEvals(cases as EvalCase[], { filter, verbose, decomposed, concurrency });
 
     const output = runs.map(r => ({
       caseId: r.caseId,
