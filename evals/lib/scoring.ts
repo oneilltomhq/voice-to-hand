@@ -34,8 +34,16 @@ function scoreSetup(actual: OHHData, expected: OHHData): DimensionScore {
   if (actual.table_size === expected.table_size) hits++;
   else issues.push(`table_size: got ${actual.table_size}, want ${expected.table_size}`);
 
-  if (actual.dealer_seat === expected.dealer_seat) hits++;
-  else issues.push(`dealer_seat: got ${actual.dealer_seat}, want ${expected.dealer_seat}`);
+  if (actual.dealer_seat === expected.dealer_seat) {
+    hits++;
+  } else if (actual.table_size === 2) {
+    // HU: dealer_seat is ambiguous — accept if hero is on the button (dealer)
+    const hero = actual.players.find(p => p.id === actual.hero_player_id);
+    if (hero && hero.seat === actual.dealer_seat) hits++;
+    else issues.push(`dealer_seat: got ${actual.dealer_seat}, want ${expected.dealer_seat} (HU: hero should be on button)`);
+  } else {
+    issues.push(`dealer_seat: got ${actual.dealer_seat}, want ${expected.dealer_seat}`);
+  }
 
   if (actual.small_blind_amount === expected.small_blind_amount) hits++;
   else issues.push(`sb: got ${actual.small_blind_amount}, want ${expected.small_blind_amount}`);
@@ -46,10 +54,19 @@ function scoreSetup(actual: OHHData, expected: OHHData): DimensionScore {
   // Hero seat
   const actualHero = actual.players.find(p => p.id === actual.hero_player_id);
   const expectedHero = expected.players.find(p => p.id === expected.hero_player_id);
-  if (actualHero && expectedHero && actualHero.seat === expectedHero.seat) hits++;
-  else if (!actualHero) issues.push("hero player missing");
-  else if (!expectedHero) issues.push("expected hero missing (test fixture error?)");
-  else issues.push(`hero seat: got ${actualHero.seat}, want ${expectedHero.seat}`);
+  if (actualHero && expectedHero && actualHero.seat === expectedHero.seat) {
+    hits++;
+  } else if (!actualHero) {
+    issues.push("hero player missing");
+  } else if (!expectedHero) {
+    issues.push("expected hero missing (test fixture error?)");
+  } else if (actual.table_size === 2) {
+    // HU: seat number is arbitrary, accept if hero is on the button
+    if (actualHero.seat === actual.dealer_seat) hits++;
+    else issues.push(`hero seat: got ${actualHero.seat}, want button (dealer=${actual.dealer_seat})`);
+  } else {
+    issues.push(`hero seat: got ${actualHero.seat}, want ${expectedHero.seat}`);
+  }
 
   return {
     dimension: "setup",
@@ -57,6 +74,27 @@ function scoreSetup(actual: OHHData, expected: OHHData): DimensionScore {
     maxScore: 1,
     details: issues.length ? issues.join("; ") : "perfect",
   };
+}
+
+/**
+ * Compare two sets of hole cards. If the expected cards are suited (same suit)
+ * or have specific suits named in the transcript, require exact suit match.
+ * Otherwise (offsuit / pocket pairs), only require matching ranks.
+ */
+function cardsMatch(actualCards: string[], expectedCards: string[]): boolean {
+  const aRanks = actualCards.slice().map(c => c[0]).sort();
+  const eRanks = expectedCards.slice().map(c => c[0]).sort();
+  if (JSON.stringify(aRanks) !== JSON.stringify(eRanks)) return false;
+
+  // If expected cards are suited (same suit, different ranks), require exact suits
+  const eSuits = expectedCards.map(c => c[c.length - 1]);
+  const isSuited = eSuits.length === 2 && eSuits[0] === eSuits[1] && eRanks[0] !== eRanks[1];
+  if (isSuited) {
+    return JSON.stringify(actualCards.slice().sort()) === JSON.stringify(expectedCards.slice().sort());
+  }
+
+  // For offsuit / pocket pairs: ranks match is sufficient
+  return true;
 }
 
 /** Player population: correct count, names optional, stacks */
@@ -70,25 +108,38 @@ function scorePlayers(actual: OHHData, expected: OHHData): DimensionScore {
   if (actual.players.length === expected.players.length) hits++;
   else issues.push(`player count: got ${actual.players.length}, want ${expected.players.length}`);
 
-  // Per-seat matching
+  // Per-player matching
+  // For HU (2-player), match by role (hero/villain) since seat numbers are arbitrary.
+  // For larger tables, match by seat number.
+  const isHU = expected.players.length === 2;
+
   for (const ep of expected.players) {
     checks++;
-    const ap = actual.players.find(p => p.seat === ep.seat);
+    let ap: Player | undefined;
+    if (isHU) {
+      // Match by role: is this the hero or the other player?
+      const isExpectedHero = ep.id === expected.hero_player_id;
+      ap = actual.players.find(p =>
+        isExpectedHero ? p.id === actual.hero_player_id : p.id !== actual.hero_player_id
+      );
+    } else {
+      ap = actual.players.find(p => p.seat === ep.seat);
+    }
+
     if (!ap) {
-      issues.push(`missing player at seat ${ep.seat}`);
+      issues.push(isHU ? `missing ${ep.id === expected.hero_player_id ? 'hero' : 'villain'}` : `missing player at seat ${ep.seat}`);
       continue;
     }
-    hits++; // seat exists
+    hits++; // player exists
 
     // Cards (if expected)
     if (ep.cards && ep.cards.length > 0) {
       checks++;
-      const actualCards = (ap.cards || []).slice().sort();
-      const expectedCards = ep.cards.slice().sort();
-      if (JSON.stringify(actualCards) === JSON.stringify(expectedCards)) {
+      const actualCards = ap.cards || [];
+      if (cardsMatch(actualCards, ep.cards)) {
         hits++;
       } else {
-        issues.push(`seat ${ep.seat} cards: got [${ap.cards}], want [${ep.cards}]`);
+        issues.push(`seat ${ap.seat} cards: got [${actualCards}], want [${ep.cards}]`);
       }
     }
   }

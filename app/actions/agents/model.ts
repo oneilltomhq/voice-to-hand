@@ -85,11 +85,8 @@ Default positions (Button = last seat):
 - Heads-up: BTN/SB=1, BB=2
 `;
 
-export const TRANSCRIPTION_FIXES = `
-Common transcription errors:
-- "an eye check" / "an eye" → "and I check" / "and I"
-- "core" → "Call"
-- "bottom" → "Button"
-- "gun" / "under the gun" → "UTG"
-- "gun plus one" → "UTG+1"
-`;
+/**
+ * @deprecated Transcription fixes are now handled at the Deepgram ASR level
+ * via `replace` in app/lib/deepgram-config.ts. Keeping for reference only.
+ */
+export const TRANSCRIPTION_FIXES = "";
