@@ -30,7 +30,6 @@ export async function generateHandHistoryPatch(
   try {
     const { object } = await generateObject({
       model: groq("openai/gpt-oss-120b"),
-      mode: "json",
       schema: patchSchema,
       system: `
         You are a Poker Hand History Assistant.

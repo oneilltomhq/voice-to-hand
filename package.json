@@ -14,7 +14,7 @@
     "@ai-sdk/groq": "^2.0.31",
     "@deepgram/sdk": "^4.11.2",
     "ai": "^5.0.100",
-    "next": "16.0.3",
+    "next": "16.1.6",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "rfc6902": "^5.1.2",
@@ -27,7 +27,7 @@
     "@types/react-dom": "^19",
     "dotenv": "^17.2.3",
     "eslint": "^9",
-    "eslint-config-next": "16.0.3",
+    "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.0.13"
