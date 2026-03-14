@@ -27,7 +27,6 @@ export async function classifySegment(
 ): Promise<Classification> {
   const { object } = await generateObject({
     model: getModel(),
-    mode: "json",
     temperature: MODEL_TEMPERATURE,
     schema: classificationSchema,
     system: `You are a poker transcript classifier. Given a transcript segment and the current game state, determine what type(s) of update are needed.

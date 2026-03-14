@@ -12,7 +12,6 @@ export async function runStreetManager(
 ): Promise<{ patches: any[] }> {
   const { object } = await generateObject({
     model: getModel(),
-    mode: "json",
     temperature: MODEL_TEMPERATURE,
     schema: patchSchema,
     system: `You are a Poker Street Manager. You handle ONLY round/street structure.

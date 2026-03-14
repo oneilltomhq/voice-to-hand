@@ -12,7 +12,6 @@ export async function runCardParser(
 ): Promise<{ patches: any[] }> {
   const { object } = await generateObject({
     model: getModel(),
-    mode: "json",
     temperature: MODEL_TEMPERATURE,
     schema: patchSchema,
     system: `You are a Poker Card Notation Specialist. You handle ONLY card parsing and assignment.

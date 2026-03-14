@@ -12,7 +12,6 @@ export async function runSetupAgent(
 ): Promise<{ patches: any[] }> {
   const { object } = await generateObject({
     model: getModel(),
-    mode: "json",
     temperature: MODEL_TEMPERATURE,
     schema: patchSchema,
     system: `You are a Poker Setup Specialist. You handle ONLY table configuration.

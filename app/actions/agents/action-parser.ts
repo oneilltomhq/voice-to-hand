@@ -13,7 +13,6 @@ export async function runActionParser(
 ): Promise<{ patches: any[] }> {
   const { object } = await generateObject({
     model: getModel(),
-    mode: "json",
     temperature: MODEL_TEMPERATURE,
     schema: patchSchema,
     system: `You are a Poker Action Sequencing Specialist. You handle ONLY betting actions.
