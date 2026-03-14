@@ -1,0 +1,648 @@
+[
+  {
+    "caseId": "hu-preflop-fold",
+    "overall": 0.9624999999999999,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.75,
+        "maxScore": 1,
+        "details": "seat 1 cards: got [As,Kh], want [Ah,Kd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 26559
+  },
+  {
+    "caseId": "limped-pot",
+    "overall": 0.7666666666666668,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.5,
+        "maxScore": 1,
+        "details": "r0a2 player: got 5, want 3; r0a2 action: got Dealt Card, want Call; r0a2 amount: got undefined, want 2; r0a3 player: got 3, want 4; r0a3 action: got Call, want Fold; r0a4 player: got 4, want 5; r0a4 action: got Fold, want Call; r0a4 amount: got undefined, want 2; r0a5 player: got 5, want 6; r0a6 player: got 6, want 1; r0a7 player: got 1, want 2; r0a7 action: got Call, want Check; round 0 extra action 8: Check by player 2"
+      },
+      {
+        "dimension": "invariants",
+        "score": 0.8333333333333334,
+        "maxScore": 1,
+        "details": "round 1 action_numbers not sequential"
+      }
+    ],
+    "errors": [],
+    "durationMs": 152767
+  },
+  {
+    "caseId": "straddle",
+    "overall": 0.9596969696969697,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.9090909090909091,
+        "maxScore": 1,
+        "details": "seat 4 cards: got [Ts,Th], want [Th,Td]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.9333333333333333,
+        "maxScore": 1,
+        "details": "r0a2 action: got Raise, want Post BB"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 153355
+  },
+  {
+    "caseId": "mid-hand-correction",
+    "overall": 0.9733333333333334,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.9333333333333333,
+        "maxScore": 1,
+        "details": "round 0 missing action 10: Call by player 3"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 187807
+  },
+  {
+    "caseId": "asr-misheard-action",
+    "overall": 0.78125,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.875,
+        "maxScore": 1,
+        "details": "seat 2 cards: got [Ks,Jh], want [Kh,Jd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.5,
+        "maxScore": 1,
+        "details": "r0a2 player: got 2, want 3; r0a2 action: got Dealt Card, want Fold; r0a3 player: got 3, want 4; r0a4 player: got 4, want 5; r0a5 player: got 5, want 6; r0a5 action: got Fold, want Raise; r0a5 amount: got undefined, want 5; r0a6 player: got 6, want 1; r0a6 action: got Raise, want Fold; r0a7 player: got 1, want 2; r0a7 action: got Fold, want Call; r0a7 amount: got undefined, want 5; round 0 extra action 8: Call by player 2"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 198846
+  },
+  {
+    "caseId": "single-utterance-street-transition",
+    "overall": 1,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 34590
+  },
+  {
+    "caseId": "check-raise",
+    "overall": 0.825,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.5625,
+        "maxScore": 1,
+        "details": "r0a2 player: got 2, want 3; r0a2 action: got Dealt Card, want Fold; r0a3 player: got 3, want 4; r0a4 player: got 4, want 5; r0a4 action: got Fold, want Raise; r0a4 amount: got undefined, want 5; r0a5 player: got 5, want 6; r0a5 action: got Raise, want Call; r0a6 player: got 6, want 1; r0a6 action: got Call, want Fold; r0a7 player: got 1, want 2; r0a7 action: got Fold, want Call; r0a7 amount: got undefined, want 5; round 0 extra action 8: Call by player 2"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 170269
+  },
+  {
+    "caseId": "all-in-for-less",
+    "overall": 0.7325320512820512,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.875,
+        "maxScore": 1,
+        "details": "seat 6 cards: got [As,Jh], want [As,Jd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.46153846153846156,
+        "maxScore": 1,
+        "details": "r0a2 player: got 6, want 3; r0a2 action: got Dealt Card, want Fold; r0a3 player: got 3, want 4; r0a4 player: got 4, want 5; r0a5 player: got 5, want 6; r0a5 action: got Fold, want Raise; r0a5 amount: got undefined, want 5; r0a6 player: got 6, want 1; r0a6 action: got Raise, want Fold; r0a7 player: got 1, want 2; r0a7 action: got Fold, want Call; r0a7 amount: got undefined, want 5; round 0 extra action 8: Call by player 2"
+      },
+      {
+        "dimension": "invariants",
+        "score": 0.8333333333333334,
+        "maxScore": 1,
+        "details": "round 1 action_numbers not sequential"
+      }
+    ],
+    "errors": [],
+    "durationMs": 48513
+  },
+  {
+    "caseId": "commentary-noop",
+    "overall": 0.6888888888888889,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.2222222222222222,
+        "maxScore": 1,
+        "details": "r0a2 action: got Dealt Card, want Raise; r0a2 amount: got undefined, want 6; r0a3 player: got 3, want 4; r0a3 action: got Raise, want Fold; r0a4 player: got 4, want 5; r0a5 player: got 5, want 6; r0a6 player: got 6, want 1; r0a7 player: got 1, want 2; round 0 extra action 8: Fold by player 2"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 38828
+  },
+  {
+    "caseId": "incomplete-sentence",
+    "overall": 0.7350961538461538,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.875,
+        "maxScore": 1,
+        "details": "seat 6 cards: got [Kc,Qd], want [Kh,Qd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.38461538461538464,
+        "maxScore": 1,
+        "details": "r0a2 player: got 6, want 3; r0a2 action: got Dealt Card, want Fold; r0a3 player: got 3, want 4; r0a4 player: got 4, want 5; r0a4 action: got Fold, want Raise; r0a4 amount: got undefined, want 12; r0a5 player: got 5, want 6; r0a5 action: got Raise, want Call; r0a6 player: got 6, want 1; r0a6 action: got Call, want Fold; r0a7 player: got 1, want 2; round 0 extra action 8: Fold by player 2; r2a0 amount: got undefined, want 35"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 121160
+  },
+  {
+    "caseId": "pocket-pairs",
+    "overall": 0.7479166666666666,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.875,
+        "maxScore": 1,
+        "details": "seat 3 cards: got [Qh,Qd], want [Qc,Qd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.4166666666666667,
+        "maxScore": 1,
+        "details": "r0a2 action: got Dealt Card, want Raise; r0a2 amount: got undefined, want 6; r0a3 player: got 3, want 4; r0a3 action: got Raise, want Fold; r0a4 player: got 4, want 5; r0a5 player: got 5, want 6; r0a6 player: got 6, want 1; r0a7 player: got 1, want 2; r0a7 action: got Fold, want Call; r0a7 amount: got undefined, want 6; round 0 extra action 8: Call by player 2"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 114704
+  },
+  {
+    "caseId": "suited-connectors",
+    "overall": 0.8133333333333335,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.5333333333333333,
+        "maxScore": 1,
+        "details": "r0a2 player: got 4, want 3; r0a2 action: got Dealt Card, want Fold; r0a3 player: got 3, want 4; r0a3 action: got Fold, want Raise; r0a3 amount: got undefined, want 5; r0a4 player: got 4, want 5; r0a4 action: got Raise, want Fold; r0a5 player: got 5, want 6; r0a6 player: got 6, want 1; r0a7 player: got 1, want 2; r0a7 action: got Fold, want Call; r0a7 amount: got undefined, want 5; round 0 extra action 8: Call by player 2"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 121029
+  },
+  {
+    "caseId": "rainbow-flop",
+    "overall": 0.9526785714285715,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.875,
+        "maxScore": 1,
+        "details": "seat 4 cards: got [As,Kh], want [Ah,Kd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 0.8571428571428571,
+        "maxScore": 1,
+        "details": "duplicate cards: [As]"
+      }
+    ],
+    "errors": [],
+    "durationMs": 77456
+  },
+  {
+    "caseId": "four-bet-pot",
+    "overall": 0.7750000000000001,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.4375,
+        "maxScore": 1,
+        "details": "r0a2 player: got 6, want 3; r0a2 action: got Dealt Card, want Fold; r0a3 player: got 1, want 4; r0a4 player: got 2, want 5; r0a4 action: got Fold, want Raise; r0a4 amount: got undefined, want 5; r0a5 player: got 3, want 6; r0a5 action: got Fold, want Raise; r0a5 amount: got undefined, want 15; r0a6 player: got 4, want 1; r0a7 player: got 5, want 2; r0a7 action: got Raise, want Fold; r0a8 player: got 6, want 5; r0a8 amount: got 15, want 40; r0a9 player: got 5, want 6; r0a9 action: got Raise, want Call; round 0 extra action 10: Call by player 6"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 167667
+  },
+  {
+    "caseId": "river-showdown",
+    "overall": 0.8200000000000001,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.55,
+        "maxScore": 1,
+        "details": "r0a2 player: got 5, want 3; r0a2 action: got Dealt Card, want Fold; r0a3 player: got 3, want 4; r0a4 player: got 4, want 5; r0a4 action: got Fold, want Raise; r0a4 amount: got undefined, want 5; r0a5 player: got 5, want 6; r0a5 action: got Raise, want Fold; r0a6 player: got 6, want 1; r0a7 player: got 1, want 2; r0a7 action: got Fold, want Call; r0a7 amount: got undefined, want 5; round 0 extra action 8: Call by player 2; round 4 missing action 0: Dealt Card by player 5; round 4 missing action 1: Dealt Card by player 2"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 100377
+  },
+  {
+    "caseId": "walk-for-bb",
+    "overall": 0.9863636363636363,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.9090909090909091,
+        "maxScore": 1,
+        "details": "seat 2 cards: got [7s,2h], want [7s,2d]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 58279
+  },
+  {
+    "caseId": "nine-handed-full-action",
+    "overall": 0.925,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 0.625,
+        "maxScore": 1,
+        "details": "round 1 action_numbers not sequential; round 2 action_numbers not sequential; round 3 action_numbers not sequential"
+      }
+    ],
+    "errors": [],
+    "durationMs": 112071
+  }
+]

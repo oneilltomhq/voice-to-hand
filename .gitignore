@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+evals/results/
+!evals/results/baseline-*.json
+!evals/results/decomposed-*.json

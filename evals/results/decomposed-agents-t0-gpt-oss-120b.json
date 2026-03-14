@@ -1,0 +1,648 @@
+[
+  {
+    "caseId": "hu-preflop-fold",
+    "overall": 0.9325000000000001,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 0.8,
+        "maxScore": 1,
+        "details": "dealer_seat: got 2, want 1"
+      },
+      {
+        "dimension": "players",
+        "score": 0.75,
+        "maxScore": 1,
+        "details": "seat 1 cards: got [As,Kh], want [Ah,Kd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 50616
+  },
+  {
+    "caseId": "limped-pot",
+    "overall": 1,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 121164
+  },
+  {
+    "caseId": "straddle",
+    "overall": 0.9596969696969697,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.9090909090909091,
+        "maxScore": 1,
+        "details": "seat 4 cards: got [Ts,Th], want [Th,Td]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.9333333333333333,
+        "maxScore": 1,
+        "details": "r0a2 action: got Bet, want Post BB"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 161032
+  },
+  {
+    "caseId": "mid-hand-correction",
+    "overall": 0.9733333333333334,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.9333333333333333,
+        "maxScore": 1,
+        "details": "round 0 missing action 10: Call by player 3"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 168644
+  },
+  {
+    "caseId": "asr-misheard-action",
+    "overall": 0.9504807692307693,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.875,
+        "maxScore": 1,
+        "details": "seat 2 cards: got [Kc,Jh], want [Kh,Jd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.9230769230769231,
+        "maxScore": 1,
+        "details": "round 1 missing action 2: Call by player 2"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 129222
+  },
+  {
+    "caseId": "single-utterance-street-transition",
+    "overall": 0.9714285714285715,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 0.8571428571428571,
+        "maxScore": 1,
+        "details": "duplicate cards: [Ah]"
+      }
+    ],
+    "errors": [],
+    "durationMs": 110593
+  },
+  {
+    "caseId": "check-raise",
+    "overall": 1,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 160269
+  },
+  {
+    "caseId": "all-in-for-less",
+    "overall": 0.9479166666666667,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.875,
+        "maxScore": 1,
+        "details": "seat 6 cards: got [As,Jh], want [As,Jd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 0.8333333333333334,
+        "maxScore": 1,
+        "details": "duplicate cards: [As]"
+      }
+    ],
+    "errors": [],
+    "durationMs": 93671
+  },
+  {
+    "caseId": "commentary-noop",
+    "overall": 1,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 57673
+  },
+  {
+    "caseId": "incomplete-sentence",
+    "overall": 0.9479166666666667,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.875,
+        "maxScore": 1,
+        "details": "seat 6 cards: got [Ks,Qh], want [Kh,Qd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.9166666666666666,
+        "maxScore": 1,
+        "details": "r2a0 amount: got undefined, want 35"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 161824
+  },
+  {
+    "caseId": "pocket-pairs",
+    "overall": 0.98125,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.875,
+        "maxScore": 1,
+        "details": "seat 3 cards: got [Qs,Qh], want [Qc,Qd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 79031
+  },
+  {
+    "caseId": "suited-connectors",
+    "overall": 1,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 120525
+  },
+  {
+    "caseId": "rainbow-flop",
+    "overall": 0.9526785714285715,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.875,
+        "maxScore": 1,
+        "details": "seat 4 cards: got [As,Kh], want [Ah,Kd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 0.8571428571428571,
+        "maxScore": 1,
+        "details": "duplicate cards: [As]"
+      }
+    ],
+    "errors": [],
+    "durationMs": 165311
+  },
+  {
+    "caseId": "four-bet-pot",
+    "overall": 1,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 132860
+  },
+  {
+    "caseId": "river-showdown",
+    "overall": 0.9162280701754386,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.8888888888888888,
+        "maxScore": 1,
+        "details": "seat 2 cards: got [As,Qh], want [Ac,Qd]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 0.8947368421052632,
+        "maxScore": 1,
+        "details": "missing round 4 (Showdown)"
+      },
+      {
+        "dimension": "invariants",
+        "score": 0.875,
+        "maxScore": 1,
+        "details": "duplicate cards: [Qh,Qh]"
+      }
+    ],
+    "errors": [],
+    "durationMs": 162565
+  },
+  {
+    "caseId": "walk-for-bb",
+    "overall": 0.9863636363636363,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 0.9090909090909091,
+        "maxScore": 1,
+        "details": "seat 2 cards: got [7s,2h], want [7s,2d]"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 48630
+  },
+  {
+    "caseId": "nine-handed-full-action",
+    "overall": 1,
+    "dimensions": [
+      {
+        "dimension": "setup",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "players",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "card_notation",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "actions",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      },
+      {
+        "dimension": "invariants",
+        "score": 1,
+        "maxScore": 1,
+        "details": "perfect"
+      }
+    ],
+    "errors": [],
+    "durationMs": 200229
+  }
+]

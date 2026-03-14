@@ -2,12 +2,39 @@
 
 import { generateObject } from "ai";
 import { createGroq } from "@ai-sdk/groq";
+import { createOpenAI } from "@ai-sdk/openai";
 import { z } from "zod";
 
-// Initialize Groq provider
-const groq = createGroq({
-  apiKey: process.env.GROQ_API_KEY,
-});
+// Provider selection: EVAL_PROVIDER=fireworks|groq (default: groq)
+function getModel() {
+  const provider = process.env.EVAL_PROVIDER || "groq";
+  const modelId = process.env.EVAL_MODEL || "openai/gpt-oss-120b";
+
+  if (provider === "fireworks") {
+    // Use OpenAI-compatible endpoint (avoids @ai-sdk/fireworks version issues)
+    const fireworks = createOpenAI({
+      apiKey: process.env.FIREWORKS_API_KEY,
+      baseURL: "https://api.fireworks.ai/inference/v1",
+    });
+    const fwModelId = modelId.startsWith("accounts/")
+      ? modelId
+      : `accounts/fireworks/models/${modelId.replace("openai/", "")}`;
+    return fireworks.chat(fwModelId);
+  }
+
+  if (provider === "openrouter") {
+    const openrouter = createOpenAI({
+      apiKey: process.env.OPENROUTER_API_KEY,
+      baseURL: "https://openrouter.ai/api/v1",
+    });
+    return openrouter.chat(modelId);
+  }
+
+  const groq = createGroq({
+    apiKey: process.env.GROQ_API_KEY,
+  });
+  return groq(modelId);
+}
 
 // Define the schema for RFC 6902 Patch operations
 // We need a loose schema because value can be anything
@@ -29,7 +56,8 @@ export async function generateHandHistoryPatch(
 ) {
   try {
     const { object } = await generateObject({
-      model: groq("openai/gpt-oss-120b"),
+      model: getModel(),
+      temperature: 0,
       schema: patchSchema,
       system: `
         You are a Poker Hand History Assistant.
@@ -208,67 +236,59 @@ export async function generateHandHistoryPatch(
            - DO NOT forget to wrap each patch in {}.
            - DO NOT just list keys and values in the array.
 
-        13. Transcription Corrections (CRITICAL):
-           - "an eye check" / "an eye" -> Interpret as "and I check" / "and I".
-           - "core" / "called" / "calls" -> Interpret "core" as "Call".
-           - "bottom" -> Interpret as "Button".
-           - "gun" / "under the gun" -> Interpret as "UTG".
-           - "gun plus one" / "onto the gun plus one" -> Interpret as "UTG+1".
-
-        14. Narrative Handling:
+        13. Narrative Handling:
            - If the user describes a player's action with narrative phrasing like "who has been X-ing... to about Y" (e.g. "The BB who's been 3-betting to 30"), interpret this as the player performing action X to amount Y in the current game state.
-           - "Me and the bottom both core" -> "Hero calls, Button calls".
 
-        15. Split Sentences / Context Continuity (CRITICAL):
+        14. Split Sentences / Context Continuity (CRITICAL):
            - If the current segment contains an action or amount but NO subject (e.g. "to 30", "raises to 50", "calls", "It's about 30"), you MUST check the previous transcript segment for a "dangling subject" or incomplete thought.
            - Example: Previous: "The big blind..." Current: "raises to 30." -> Action: Big Blind raises to 30.
            - Example: Previous: "The big blind who has been betting..." Current: "three or four x. Yeah. It's about 30." -> Action: Big Blind raises to 30.
            - Do NOT assume the actor is the last person who acted (e.g. Button) if a new subject was introduced in the previous segment.
            - YOU MUST GENERATE THE ACTION described in the continuation. Do not ignore it.
 
-        16. Incomplete Sentences / Trailing Subjects:
+        15. Incomplete Sentences / Trailing Subjects:
            - If a transcript segment ends with a player name or partial phrase without an action (e.g. "The big", "And then the"), DO NOT hallucinate an action for them.
            - Wait for the next segment to provide the action.
            - It is better to produce NO patches for an ambiguous segment than to guess wrong.
         
-        17. Comma-Separated Lists of Cards (CRITICAL):
+        16. Comma-Separated Lists of Cards (CRITICAL):
             - "seven, eight, nine, two hearts" -> ["7h", "8h", "9h"]
             - If a list of cards ends with a suit (e.g. "two hearts"), apply that suit to ALL cards in the list unless they have their own suit specified.
             - "Ace, seven, deuce rainbow" -> ["As", "7h", "2d"] (distinct suits)
 
-        18. Multi-Step & Street Transition Logic:
+        17. Multi-Step & Street Transition Logic:
            - If a user input contains actions for the current street AND announces the next street (e.g., "Me and button call. Flop is..."), you MUST:
              1. First, generate "add" patches for the missing actions (Calls) in the CURRENT round (Preflop).
              2. THEN, generate "add" patches for the NEW round (Flop).
            - Do NOT skip the intermediate actions.
            - Do NOT put pre-flop actions into the Flop round.
 
-        19. Amount Logic (CRITICAL):
+        18. Amount Logic (CRITICAL):
            - "Call": The amount MUST match the highest "Bet", "Raise", or "Post BB" amount in the current round.
              - Example: If P1 raises to 7, P2 calls. P2's action is "Call", amount: 7 (NOT 5, NOT the difference).
            - "Raise" / "Bet": The amount is the TOTAL value the player puts in for the street (e.g. "Raise to 30" -> amount: 30).
            - "Post SB" / "Post BB": The amount is the absolute blind size (e.g. 1 or 2).
 
-        20. Pre-flop Blind Posting (MANDATORY):
+        19. Pre-flop Blind Posting (MANDATORY):
            - If the "Preflop" round does not exist yet, and the user describes dealing cards (e.g. "I get dealt...") or the first action (e.g. "UTG raises"), you MUST:
              1. Create the "Preflop" round.
              2. Add "Post SB" (Action 1) and "Post BB" (Action 2).
              3. Add the user's described action (e.g. "Dealt Card" or "Raise").
            - Ensure the SB and BB players exist in the 'players' array before posting blinds.
 
-        21. Corrections and Out-of-Order Info (CRITICAL):
+        20. Corrections and Out-of-Order Info (CRITICAL):
             - If the user provides information that contradicts or precedes recorded actions (e.g. "There were 3 limpers" after previously recording "I check"), you MUST correct the history.
             - You cannot simply append actions if they belong earlier in the timeline.
             - Use "remove" operations to delete incorrect actions or actions that need to be moved.
             - Use "add" operations (with specific array indices like "/rounds/0/actions/2") to insert actions in the correct chronological order.
             - Example: If BB Checked (Action 3), but then user says "UTG called", you must insert the UTG Call at Action 3, and shift the BB Check to Action 4 (or remove and re-add it).
         
-        22. End of Hand Logic (MANDATORY):
+        21. End of Hand Logic (MANDATORY):
            - If a player folds and the hand ends (e.g. "He folds", "I win"), DO NOT create a new round for "Showdown" or "River" if it wasn't reached.
            - The last action should just be the Fold.
            - The 'street' of the last round remains whatever it was (e.g. "Turn").
         
-        23. Commentary / No-Op:
+        22. Commentary / No-Op:
             - If the user's input is commentary (e.g. "bad beat", "that's crazy") or describes state that is ALREADY recorded (e.g. "it's a rainbow flop" when the flop cards are already different suits), DO NOT generate patches that duplicate data.
             - Return an empty 'patches' array: []
 

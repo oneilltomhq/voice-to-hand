@@ -3,6 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { UtteranceEndEvent } from "@deepgram/sdk";
+import { getDeepgramOptions } from "../../lib/deepgram-config";
 import {
   useDeepgram,
   LiveConnectionState,
@@ -54,14 +55,10 @@ export default function TestDeepgram() {
     await setupMicrophone(); // asks for permission
 
     setStatus("connecting to Deepgram...");
-    await connectToDeepgram({
-      model: "nova-3",
-      interim_results: true,
-      smart_format: true,
+    await connectToDeepgram(getDeepgramOptions({
       endpointing: ENDPOINTING_MS,
       utterance_end_ms: UTTERANCE_END_MS,
-      vad_events: true,
-    });
+    }));
   };
 
   // When connection is OPEN, start mic and wire up events

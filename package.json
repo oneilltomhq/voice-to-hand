@@ -8,10 +8,13 @@
     "start": "next start",
     "test": "vitest run",
     "test:watch": "vitest",
+    "eval": "npx tsx evals/run.ts",
+    "eval:verbose": "npx tsx evals/run.ts --verbose",
     "lint": "eslint"
   },
   "dependencies": {
     "@ai-sdk/groq": "^2.0.31",
+    "@ai-sdk/openai": "^2.0.99",
     "@deepgram/sdk": "^4.11.2",
     "ai": "^5.0.100",
     "next": "16.1.6",
