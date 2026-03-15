@@ -22,6 +22,8 @@ export interface SolverResult {
   ip_ev: number;
   actions: string[];
   strategy: Record<string, Record<string, number>>;
+  ip_actions?: string[];
+  ip_strategy?: Record<string, Record<string, number>>;
 }
 
 export interface SolveOptions {
