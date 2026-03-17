@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JJ on A♠T— 7— — GTO Analysis</title>
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; background: #1a1a2e; color: #e0e0e0; }
+h1 { color: #00d4aa; font-size: 1.5rem; }
+h2 { color: #8ab4f8; font-size: 1.15rem; margin-top: 2rem; }
+.hand-info { background: #16213e; border-radius: 8px; padding: 16px 20px; margin: 16px 0; border-left: 4px solid #00d4aa; }
+.hand-info p { margin: 4px 0; font-size: 0.95rem; }
+.verdict { background: #1b3a2a; border-radius: 8px; padding: 16px 20px; margin: 20px 0; border-left: 4px solid #4caf50; }
+.verdict h3 { color: #4caf50; margin: 0 0 8px 0; }
+.verdict p { margin: 4px 0; }
+.chart-container { background: #16213e; border-radius: 8px; padding: 16px; margin: 16px 0; }
+.note { color: #999; font-size: 0.85rem; font-style: italic; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+td, th { padding: 8px 12px; text-align: center; border-bottom: 1px solid #2a2a4a; font-size: 0.9rem; }
+th { color: #8ab4f8; font-weight: 600; }
+.highlight { color: #ff6b6b; font-weight: 600; }
+.good { color: #4caf50; }
+tr:hover { background: #1f2f5a; }
+</style>
+</head>
+<body>
+
+<h1>🂠 JJ on A-T-7 — GTO Flop Analysis</h1>
+
+<div class="hand-info">
+  <p><strong>Venue:</strong> Hippodrome, London — £1/2 with double straddle to £10</p>
+  <p><strong>Hero:</strong> J♠J♥ from UTG+2, raises to £30</p>
+  <p><strong>Callers:</strong> BTN + Blind (both assumed fish)</p>
+  <p><strong>Pot at flop:</strong> ~£105 &nbsp;|&nbsp; <strong>Eff stack:</strong> ~£170 &nbsp;|&nbsp; <strong>SPR:</strong> 1.6</p>
+  <p><strong>Hero's actual play:</strong> C-bet £30 (≈ 29% pot)</p>
+</div>
+
+<h2>JJ Strategy by Board Texture (HU Approximations)</h2>
+
+<p class="note">Since the solver only handles heads-up, we solve Hero vs each villain separately. In a real 3-way pot, checking would be even more correct than these HU numbers suggest.</p>
+
+<div id="chart-oop"></div>
+<div id="chart-ip"></div>
+
+<h2>Detailed Frequencies</h2>
+
+<table>
+<tr>
+  <th>Matchup</th>
+  <th>Board</th>
+  <th>Hero Eq%</th>
+  <th>Check</th>
+  <th>Bet 33%</th>
+  <th>Bet 75%</th>
+</tr>
+<tr><td>vs BTN (OOP)</td><td>A♥ T♣ 7♦ 🌈</td><td>55.2%</td><td>3%</td><td class="good">95%</td><td>2%</td></tr>
+<tr><td>vs BTN (OOP)</td><td>A♥ T♥ 7♦ 🎨</td><td>54.9%</td><td>4%</td><td class="good">96%</td><td>1%</td></tr>
+<tr><td>vs BTN (OOP)</td><td>A♥ T♥ 7♥ 🔴</td><td>54.1%</td><td>6%</td><td class="good">94%</td><td>0%</td></tr>
+<tr style="border-top: 2px solid #444">
+  <td>vs BB (IP)</td><td>A♥ T♣ 7♦ 🌈</td><td>61.7%</td><td class="highlight">30%</td><td>70%</td><td>0%</td></tr>
+<tr><td>vs BB (IP)</td><td>A♥ T♥ 7♦ 🎨</td><td>60.7%</td><td class="highlight">25%</td><td>75%</td><td>0%</td></tr>
+<tr><td>vs BB (IP)</td><td>A♥ T♥ 7♥ 🔴</td><td>57.9%</td><td class="highlight">55%</td><td>45%</td><td>0%</td></tr>
+</table>
+
+<h2>Range-Wide C-Bet Frequency</h2>
+<table>
+<tr><th>Matchup</th><th>Rainbow</th><th>Two-tone</th><th>Monotone</th></tr>
+<tr><td>vs BTN (Hero OOP)</td><td>92%</td><td>90%</td><td>91%</td></tr>
+<tr><td>vs BB (Hero IP)</td><td>68%</td><td>65%</td><td>47%</td></tr>
+</table>
+
+<div class="verdict">
+  <h3>✅ Verdict on Your C-bet</h3>
+  <p><strong>HU vs BTN:</strong> Small c-bet with JJ is overwhelmingly correct (≥ 94% frequency across all textures). Your £30 into £105 is the right sizing.</p>
+  <p><strong>HU vs BB:</strong> More mixed. JJ should still mostly bet (~70-75%) on rainbow/two-tone, but on a monotone board without a heart, JJ becomes a majority check (85%!).</p>
+  <p><strong>But this is 3-way, not HU.</strong> With two opponents, the Ace hits more of their combined range, and you have less fold equity. The correct 3-way adjustment is to check more. GTO says bet in HU; multiway tips it toward check-call or possibly a very small probe.</p>
+  <p><strong>Your intuition was partially right:</strong> "Maybe I should've checked or bet very small." In the 3-way pot, checking is more defensible than it looks. But if you do bet, the small sizing (£30 = 29%) is exactly what GTO prefers — never the 75% pot.</p>
+  <p><strong>Monotone is the biggest check.</strong> Without a heart (JJ no heart), it's a clear check. With one heart, it's marginal.</p>
+</div>
+
+<h2>Key Insight: JJ with/without a Heart</h2>
+<p>On the monotone board (A♥T♥ 7♥), notice the solver differentiates:</p>
+<table>
+<tr><th>Combo</th><th>Has ♥?</th><th>Check%</th><th>Bet 33%</th></tr>
+<tr><td>J♠J♥</td><td>✅</td><td>41%</td><td>59%</td></tr>
+<tr><td>J♥J♦</td><td>✅</td><td>41%</td><td>59%</td></tr>
+<tr><td>J♥J♣</td><td>✅</td><td>41%</td><td>59%</td></tr>
+<tr><td>J♠J♦</td><td>❌</td><td class="highlight">85%</td><td>15%</td></tr>
+<tr><td>J♠J♣</td><td>❌</td><td class="highlight">85%</td><td>15%</td></tr>
+<tr><td>J♦J♣</td><td>❌</td><td class="highlight">85%</td><td>15%</td></tr>
+</table>
+<p>Having a heart as a blocker/backdoor makes a huge difference in the solver's preference.</p>
+
+<script>
+const oopData = [
+  {board: 'Rainbow', action: 'Check', freq: 3},
+  {board: 'Rainbow', action: 'Bet 33%', freq: 95},
+  {board: 'Rainbow', action: 'Bet 75%', freq: 2},
+  {board: 'Two-tone', action: 'Check', freq: 4},
+  {board: 'Two-tone', action: 'Bet 33%', freq: 96},
+  {board: 'Two-tone', action: 'Bet 75%', freq: 1},
+  {board: 'Monotone', action: 'Check', freq: 6},
+  {board: 'Monotone', action: 'Bet 33%', freq: 94},
+  {board: 'Monotone', action: 'Bet 75%', freq: 0},
+];
+
+const ipData = [
+  {board: 'Rainbow', action: 'Check', freq: 30},
+  {board: 'Rainbow', action: 'Bet 33%', freq: 70},
+  {board: 'Two-tone', action: 'Check', freq: 25},
+  {board: 'Two-tone', action: 'Bet 33%', freq: 75},
+  {board: 'Monotone (w/ ♥)', action: 'Check', freq: 41},
+  {board: 'Monotone (w/ ♥)', action: 'Bet 33%', freq: 59},
+  {board: 'Monotone (no ♥)', action: 'Check', freq: 85},
+  {board: 'Monotone (no ♥)', action: 'Bet 33%', freq: 15},
+];
+
+const spec = (title, data) => ({
+  $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+  title: {text: title, color: '#8ab4f8'},
+  width: 400,
+  height: 200,
+  background: '#16213e',
+  data: {values: data},
+  mark: {type: 'bar', cornerRadiusTopLeft: 4, cornerRadiusTopRight: 4},
+  encoding: {
+    x: {field: 'board', type: 'nominal', axis: {labelColor: '#ccc', titleColor: '#ccc'}, title: 'Board Texture'},
+    y: {field: 'freq', type: 'quantitative', axis: {labelColor: '#ccc', titleColor: '#ccc'}, title: 'Frequency %', scale: {domain: [0, 100]}},
+    color: {
+      field: 'action', type: 'nominal',
+      scale: {domain: ['Check', 'Bet 33%', 'Bet 75%'], range: ['#78909c', '#4caf50', '#ff6b6b']},
+      legend: {labelColor: '#ccc', titleColor: '#ccc'}
+    },
+    xOffset: {field: 'action', type: 'nominal'},
+  },
+  config: {view: {stroke: null}}
+});
+
+vegaEmbed('#chart-oop', spec('JJ Strategy: Hero OOP vs BTN', oopData), {actions: false});
+vegaEmbed('#chart-ip', spec('JJ Strategy: Hero IP vs BB', ipData), {actions: false});
+</script>
+
+</body>
+</html>
